@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Авторизация</h1>
+<form action="" method="POST">
+    {{ form.csrf_token() }}
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(class="form-control") }}<br>
+        {% for error in form.username.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+        {% for error in form.password.errors %}
+    <div class="alert alert-danger" role="alert" style="background: #D0D0FF; border-radius: 10px; margin-top: 50px; padding: 10px">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    <p>
+        <div class="form-row">
+                <div class="col">
+                    <a href="/register" class="btn btn-secondary btn-block">Регистрация</a>
+                </div>
+         </div>
+        {% if message %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+         {% endif %}
+
+
+    </p>
+</form>
+{% endblock %}
+
+
