@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block base_navbar %}
+Меню
+{% block private_navbar %} {% endblock %}
+{{ current_user.login }}
+Настройки
+Выход
+{% endblock %} {% block base_content %} {% block content %} {% endblock %} {% endblock %}
